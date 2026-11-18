@@ -1,7 +1,7 @@
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import { defineConfig } from '@rsbuild/core';
 import { pluginSolid } from '@rsbuild/plugin-solid';
-import { localCors } from '../../mf.shared';
+import { localCors, sharedSolid } from '../../mf.shared';
 
 export default defineConfig({
   plugins: [
@@ -11,6 +11,7 @@ export default defineConfig({
       exposes: {
         './Forecast': './src/Forecast.tsx',
       },
+      shared: sharedSolid,
       dts: false,
     }),
   ],
