@@ -43,7 +43,7 @@ Each remote also runs standalone on its own port, and both work fine on their ow
 
 Solid 2.0 keeps the scheduler, owner tree and transition state in module state inside `@solidjs/signals`. Two copies means two reactive graphs. `Forecast`'s memo belongs to the copy inside `forecast`, while the JSX reading it runs under an owner from the shell's copy. Neither copy sees a tracking scope, the pending read throws, the error escapes the shell's `<Loading>` because that boundary belongs to the other graph, and the whole app halts.
 
-The fix is two lines, on the [`fix` branch](../../compare/main...fix):
+The fix is two lines, on the [`fix` branch](https://github.com/Nsttt/solid2-mf-broken/compare/main...fix):
 
 ```diff
 -import { localCors } from '../../mf.shared';
